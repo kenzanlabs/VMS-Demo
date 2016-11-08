@@ -3,25 +3,26 @@ var mocha = require('gulp-mocha');
 var notifierReporter = require('mocha-notifier-reporter');
 
 gulp.task('test', function() {
-  gulp.src(['src/**/*.spec.img'])
+  gulp.src(['src/**/*.spec.js'])
     .pipe(mocha({
       options: 'tdd',
       reporter: notifierReporter.decorate('spec')
     }));
 });
 
-gulp.task('build', function () {
-  // Test
+gulp.task('build', ['test'], function () {
   // Compile as-needed
   // Move files
 });
 
-gulp.task('serve', function () {
+// Transpile?
+
+gulp.task('server', function() {
 
 });
 
-gulp.task('watch', ['test'], function() {
-  return gulp.watch(['src/**/*.img'], ['test']);
+gulp.task('dev', ['build', 'serve'], function() {
+  return gulp.watch(['src/**/*.js'], ['test']);
 });
 
 gulp.task('default', 'build');

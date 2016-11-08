@@ -7,11 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .list-days {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list-days li {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
+    <header>
+        <h1>Snowday</h1>
+        <p>Determine the most-likely snow day for this week</p>
 
+        <aside>
+            <h2>Vail Snow Report</h2>
+            {{lower_snow_depth}} - {{upper_snow_depth}} inches
+            {{conditions}} as of {{report_date}}
+            Last snowed: {{last_snow_date}}
+        </aside>
+    </header>
+    <main>
+        <ul class="list-days">
+            <li>
+                <h2>{{Date}}</h2>
+                <div class="day-info">
+                    {{icon}}
+                    {{temp}}
+                    {{weather_text}}
+                    {{wind_info}}
+                </div>
+                <div class="night-info">
+                    {{icon}}
+                    {{temp}}
+                    {{weather_text}}
+                    {{wind_info}}
+                </div>
+            </li>
+        </ul>
+    </main>
 </div>
 
 <script src="assets/img/main.js"></script>
