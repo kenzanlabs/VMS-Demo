@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import { selectedResort, fullUrl } from '../../../config';
+
 import Report from '../Report/Report';
 import DaysList from '../DaysList/DaysList';
 import './App.css';
@@ -20,18 +20,13 @@ class App extends Component {
   componentWillMount() {
     this.pageRequest = $.get('/api/weather')
       .done((results) => {
-        console.log('results', results);
-
+        cons
         this.setState({
-          loadingHeading: false
+          apiResults: results.weather
         });
       })
       .fail((err) => {
         console.log('err', err);
-
-        this.setState({
-          loadingHeading: false,
-        });
       });
   }
 
@@ -40,12 +35,6 @@ class App extends Component {
   }
 
   render() {
-    // const loadingClass = classNames({
-    //   loading: true,
-    //   'loading-active': this.state.loadingHeading,
-    //   'loading-disabled': !this.state.loadingHeading,
-    // });
-
     return (
       <div className="container clearfix">
         <main>
@@ -53,9 +42,9 @@ class App extends Component {
             <h1>Snowday</h1>
             <p>Determine the most-likely snow day for this week</p>
           </header>
-          <DaysList/>
+          <DaysList data={this.state.apiResults.forecast} />
         </main>
-        <Report resort={selectedResort} />
+        <Report resort="Vail Mountain Resort" data={this.state.apiResults.snow_report} />
     </div>
     );
   }

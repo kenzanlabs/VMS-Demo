@@ -6,6 +6,10 @@ class Utils {
     };
   }
 
+  determineWinner() {
+
+  }
+
   // Convert from Celsius to Fahrenheit
   convertTemp() {
 
