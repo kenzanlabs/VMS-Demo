@@ -1,0 +1,27 @@
+aside {
+    box-sizing: border-box;
+    padding: 15px;
+    border: 10px solid #002458;
+    float: left;
+    width: 35%;
+    margin: 0 0 20px;
+}
+
+aside h2 {
+    margin: -15px -15px 20px;
+    padding: 0px 15px 10px;
+    background: #002458;
+    color: white;
+}
+
+.report-depths {
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.report-conditions {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
